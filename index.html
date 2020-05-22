@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <div id="title">Rock Paper Scissors</div>
+        <div id="actions">
+            <div>Your action:</div>
+            <button id="rock"><img src="images/rock.png"></button>
+            <button id="paper"><img src="images/paper.png"></button>
+            <button id="scissors"><img src="images/scissors.png"></button>
+        </div>
+        <div id="bot">
+            <div>Computer action:</div>
+            <div id='bot-image'><img src=""></div>
+        </div>
+        <div id="result"></div>
+        <script>
+
+            document.getElementById("rock").addEventListener('click', function(event) {
+                respond(0);
+            });
+            
+            function respond(user) {
+                let bot = Math.floor(Math.random() * 3);
+                let img = document.createElement("IMG");
+                img.id = 'bot-action';
+                if (bot == 0){
+                    img.src = "images/rock.png";
+                } else if (bot == 1){
+                    img.src = "images/paper.png";
+                } else{
+                    img.src = "images/scissors.png";
+                }
+                //display bot action
+                document.getElementById('bot-image').innerHTML = "";
+                document.getElementById('bot-image').appendChild(img);
+                //get result
+                let result = null;
+                if (bot == user) {
+                    result = "draw";
+                } else if ((user==0 && bot==2) || (user==1 && bot==0) || (user==2 && bot==1)) {
+                    result="win";
+                } else {
+                    result="lose";
+                }
+                //display result
+                document.getElementById('result').innerHTML= "You "+result+"!";
+            }
+
+            
+        </script>
+    </body>
+</html>
