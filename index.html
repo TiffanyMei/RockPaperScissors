@@ -21,6 +21,12 @@
             document.getElementById("rock").addEventListener('click', function(event) {
                 respond(0);
             });
+            document.getElementById("paper").addEventListener('click', function(event) {
+                respond(1);
+            });
+            document.getElementById("scissor").addEventListener('click', function(event) {
+                respond(2);
+            });
             
             function respond(user) {
                 let bot = Math.floor(Math.random() * 3);
